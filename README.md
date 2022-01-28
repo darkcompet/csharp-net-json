@@ -1,17 +1,26 @@
-# Json for C# Core
+# Json for Net
 
-This is based on Json in .NET Core, provide Json conversion for apps.
+This provides Json converter for Net.
 
-Note that, even though it is based on Core, but some framework (for eg,. Unity,...)
-does work well with it since some restriction on that framework.
-In that case, we should use that framework-based Json instead (for eg,. csharp-unity-json,...).
+- Features
+
+	```bash
+	- Json serialize/deserialize.
+	```
+
+- Dependencies
+
+	```bash
+	# Tool.Compet.Core
+	https://github.com/darkcompet/csharp-core
+	```
 
 
-## Quick Start
+## How to install
 
 - Just include it into project by add as git-submodule.
 	
 	```bash
-	# Tool.Compet.JsonNet
-	git submodule add https://github.com/darkcompet/csharp-core-json.git
+	# Tool.Compet.Json
+	git submodule add https://github.com/darkcompet/csharp-net-json.git
 	```
