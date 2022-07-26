@@ -1,6 +1,6 @@
-# Json for Net
+# Json for dotnet
 
-This provides Json converter for Net.
+This provides Json converter for dotnet.
 
 - Features
 
