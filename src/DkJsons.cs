@@ -8,12 +8,24 @@ namespace Tool.Compet.Json {
 	/// - Deserialize small string => Unity is optimal
 	/// - Deserialize large string => Newton is optimal
 	public class DkJsons {
+		/// Convert obj -> json.
 		public static string Obj2Json(object serializableObj) {
 			return JsonSerializer.Serialize(serializableObj);
 		}
-	
+
+		/// This is another name of `Obj2Json()`.
+		public static string ToJson(object serializableObj) {
+			return JsonSerializer.Serialize(serializableObj);
+		}
+
+		/// Convert json -> obj.
 		/// Caller should add `where T : class` to its function to allow return nullable value.
 		public static T? Json2Obj<T>(string json) where T : class {
+			return JsonSerializer.Deserialize<T>(json);
+		}
+
+		/// This is another name of `Json2Obj()`.
+		public static T? ToObj<T>(string json) where T : class {
 			return JsonSerializer.Deserialize<T>(json);
 		}
 	}
