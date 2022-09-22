@@ -9,13 +9,13 @@ namespace Tool.Compet.Json {
 	/// - Deserialize large string => Newton is optimal
 	public class DkJsons {
 		/// Convert obj -> json.
-		public static string Obj2Json(object serializableObj) {
-			return JsonSerializer.Serialize(serializableObj);
+		public static string Obj2Json(object serializableObj, bool writeIndented = false) {
+			return JsonSerializer.Serialize(serializableObj, options: new JsonSerializerOptions { WriteIndented = writeIndented });
 		}
 
 		/// This is another name of `Obj2Json()`.
-		public static string ToJson(object serializableObj) {
-			return JsonSerializer.Serialize(serializableObj);
+		public static string ToJson(object serializableObj, bool writeIndented = false) {
+			return JsonSerializer.Serialize(serializableObj, options: new JsonSerializerOptions { WriteIndented = writeIndented });
 		}
 
 		/// Convert json -> obj.
