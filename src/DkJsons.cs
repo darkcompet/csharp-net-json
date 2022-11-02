@@ -8,23 +8,27 @@ namespace Tool.Compet.Json {
 	/// - Deserialize small string => Unity is optimal
 	/// - Deserialize large string => Newton is optimal
 	public class DkJsons {
+		/// @deprecated Use `ToJson()` instead.
 		/// Convert obj -> json.
 		public static string Obj2Json(object serializableObj, bool writeIndented = false) {
 			return JsonSerializer.Serialize(serializableObj, options: new JsonSerializerOptions { WriteIndented = writeIndented });
 		}
 
-		/// This is another name of `Obj2Json()`.
+		/// Convert obj to json string.
+		/// Each field/properties in the object should be annotated with [JsonPropertyName()] attribute
+		/// TechNote: Caller should add `where T : class` to its function to allow return nullable value.
 		public static string ToJson(object serializableObj, bool writeIndented = false) {
 			return JsonSerializer.Serialize(serializableObj, options: new JsonSerializerOptions { WriteIndented = writeIndented });
 		}
 
+		/// @deprecated Use `ToObj()` instead.
 		/// Convert json -> obj.
-		/// Caller should add `where T : class` to its function to allow return nullable value.
 		public static T? Json2Obj<T>(string json) where T : class {
 			return JsonSerializer.Deserialize<T>(json);
 		}
 
-		/// This is another name of `Json2Obj()`.
+		/// Convert json string to obj.
+		/// Each field/properties in the object should be annotated with [JsonPropertyName()] attribute
 		public static T? ToObj<T>(string json) where T : class {
 			return JsonSerializer.Deserialize<T>(json);
 		}
